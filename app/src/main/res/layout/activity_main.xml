@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    android:background="#101112"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="@integer/abc_max_action_buttons">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/lookate"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/food_button"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:layout_gravity="start"
+        android:textAllCaps="false"
+        android:textSize="73sp"
+        android:textColor="#ffffff"
+        android:textStyle="normal"
+        android:text="@string/food"
+        android:onClick="openFood"/>
+
+    <Button
+        android:id="@+id/transport_button"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:layout_gravity="end"
+        android:textAllCaps="false"
+        android:textSize="73sp"
+        android:textColor="#ffffff"
+        android:textStyle="normal"
+        android:text="@string/transport"
+        android:onClick="openTransport"/>
+
+    <Button
+        android:id="@+id/residen_button"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:layout_gravity="start"
+        android:textAllCaps="false"
+        android:textSize="73sp"
+        android:textColor="#ffffff"
+        android:textStyle="normal"
+        android:text="@string/residen"
+        android:onClick="openResiden"/>
+
+    <Button
+        android:id="@+id/shop_button"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:layout_gravity="end"
+        android:textAllCaps="false"
+        android:textSize="73sp"
+        android:textColor="#ffffff"
+        android:textStyle="normal"
+        android:text="@string/shop"
+        android:onClick="openPlace"/>
+
+    <Button
+        android:id="@+id/publicservice_button"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:layout_gravity="start"
+        android:textAllCaps="false"
+        android:textSize="73sp"
+        android:textColor="#ffffff"
+        android:textStyle="normal"
+        android:text="@string/publicservice"
+        android:onClick="openPublicplace"/>
+
+
+</LinearLayout>
