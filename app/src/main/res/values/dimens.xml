@@ -6,4 +6,6 @@
     <dimen name="rating">15dip</dimen>
     <dimen name="genre">13dip</dimen>
     <dimen name="year">12dip</dimen>
+    <dimen name="menu">50sp</dimen>
+    <dimen name="menuList">60sp</dimen>
 </resources>

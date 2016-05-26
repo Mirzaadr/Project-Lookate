@@ -1,58 +1,76 @@
 package com.android.mirzaadr.lookate;
 
-        import com.android.mirzaadr.lookate.adapter.CustomListAdapter;
-        import com.android.mirzaadr.lookate.app.AppController;
-        import com.android.mirzaadr.lookate.model.Movie;
+import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
 
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-        import android.app.Activity;
-        import android.app.ProgressDialog;
-        import android.graphics.Color;
-        import android.graphics.drawable.ColorDrawable;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.Menu;
-        import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-        import com.android.volley.Response;
-        import com.android.volley.VolleyError;
-        import com.android.volley.VolleyLog;
-        import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.mirzaadr.lookate.adapter.CustomListAdapter;
+import com.android.mirzaadr.lookate.app.AppController;
+import com.android.mirzaadr.lookate.model.Movie;
 
-public class MainActivity2 extends Activity {
+
+public class MainActivity2 extends ActionBarActivity {
     // Log tag
     private static final String TAG = MainActivity.class.getSimpleName();
 
     // Movies json url
-    private static final String url = "http://api.androidhive.info/json/movies.json";
+    private static final String url = "http://himatipa.tp.ugm.ac.id/lookate/makanan_list.php";
     private ProgressDialog pDialog;
     private List<Movie> movieList = new ArrayList<Movie>();
     private ListView listView;
     private CustomListAdapter adapter;
+    public String ide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_activity2);
 
         listView = (ListView) findViewById(R.id.list);
         adapter = new CustomListAdapter(this, movieList);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent in = new Intent(getApplicationContext(), detilmakanan.class);
+                String idmem = ((TextView)view.findViewById(R.id.id)).getText().toString();
+                in.putExtra("key", idmem);
+                startActivity(in);
 
+            }
+        });
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
         pDialog.setMessage("Loading...");
         pDialog.show();
-
-        // changing action bar color
-        getActionBar().setBackgroundDrawable(
-                new ColorDrawable(Color.parseColor("#1b1b1b")));
 
         // Creating volley request obj
         JsonArrayRequest movieReq = new JsonArrayRequest(url,
@@ -68,21 +86,13 @@ public class MainActivity2 extends Activity {
 
                                 JSONObject obj = response.getJSONObject(i);
                                 Movie movie = new Movie();
-                                movie.setTitle(obj.getString("title"));
+                               movie.setTestimoni(obj.getString("id"));
                                 movie.setThumbnailUrl(obj.getString("image"));
-                                movie.setRating(((Number) obj.get("rating"))
-                                        .doubleValue());
-                                movie.setYear(obj.getInt("releaseYear"));
-
-                                // Genre is json array
-                                JSONArray genreArry = obj.getJSONArray("genre");
-                                ArrayList<String> genre = new ArrayList<String>();
-                                for (int j = 0; j < genreArry.length(); j++) {
-                                    genre.add((String) genreArry.get(j));
-                                }
-                                movie.setGenre(genre);
-
-                                // adding movie to movies array
+                                movie.setTitle(obj.getString("nama"));
+                                movie.setRating(obj.getString("alamat"));
+                                movie.setGenre(obj.getString("cp"));
+                                movie.setAlamat(obj.getString("lo"));
+                                movie.setKeterangan(obj.getString("la"));
                                 movieList.add(movie);
 
                             } catch (JSONException e) {
@@ -106,6 +116,7 @@ public class MainActivity2 extends Activity {
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(movieReq);
+
     }
 
     @Override
@@ -124,7 +135,14 @@ public class MainActivity2 extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_main_actions, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_main_actions, menu);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search)
+                .getActionView();
+        searchView.setSearchableInfo(searchManager
+                .getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false);
         return true;
     }
 

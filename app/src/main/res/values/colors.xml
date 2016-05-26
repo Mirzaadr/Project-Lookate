@@ -8,5 +8,12 @@
     <color name="list_row_end_color">#ffffff</color>
     <color name="list_row_hover_start_color">#ebeef0</color>
     <color name="list_row_hover_end_color">#ebeef0</color>
+    <color name="myBlue">#0093dd</color>
+    <color name="myWhite">#ffffff</color>
+    <color name="list_background">#0050dd</color>
+    <color name="list_background_pressed">#0093dd</color>
+    <color name="counter_text_bg">#ffffff</color>
+    <color name="list_item_title">#ffffff</color>
+    <color name="counter_text_color">#666666</color>
 
 </resources>

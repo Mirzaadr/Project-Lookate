@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:MyApplication="http://schemas.android.com/apk/res-auto">
+
+    <!-- Settings
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        MyApplication:showAsAction="never" />-->
+
+    <!-- Help -->
+    <item android:id="@+id/hybrid"
+        android:title="Hybrid"
+        MyApplication:showAsAction="never"/>
+
+    <!-- Check updates -->
+    <item android:id="@+id/terrain"
+        android:title="Terrain"
+        MyApplication:showAsAction="never" />
+
+    <item android:id="@+id/normal"
+        android:title="Normal"
+        MyApplication:showAsAction="never" />
+
+    <item android:id="@+id/Setllite"
+        android:title="Setellite"
+        MyApplication:showAsAction="never" />
+</menu>

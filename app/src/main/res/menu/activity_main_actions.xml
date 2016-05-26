@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:MyApplication="http://schemas.android.com/apk/res-auto">
 
-
     <!-- Search / will display always -->
     <item android:id="@+id/action_search"
         android:icon="@drawable/ic_action_search"
@@ -10,4 +9,18 @@
         MyApplication:showAsAction="ifRoom|collapseActionView"
         MyApplication:actionViewClass="android.widget.SearchView"/>
 
+    <!-- Settings
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        MyApplication:showAsAction="never" />-->
+
+    <!-- Help -->
+    <item android:id="@+id/action_help"
+        android:title="@string/action_help"
+        MyApplication:showAsAction="never"/>
+
+    <!-- Check updates -->
+    <item android:id="@+id/action_check_updates"
+        android:title="@string/action_check_updates"
+        MyApplication:showAsAction="never" />
 </menu>

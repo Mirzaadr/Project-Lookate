@@ -44,4 +44,14 @@
         android:textColor="@color/genre"
         android:textSize="@dimen/genre" />
 
+    <TextView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/id"
+        android:layout_below="@+id/genre"
+        android:layout_toEndOf="@+id/title"
+        android:textColor="#ffffff"/>
+
+
 </RelativeLayout>

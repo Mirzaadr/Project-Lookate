@@ -1,63 +1,86 @@
 package com.android.mirzaadr.lookate.model;
 
-import java.util.ArrayList;
-
 public class Movie {
-    private String title, thumbnailUrl;
-    private int year;
-    private double rating;
-    private ArrayList<String> genre;
+	private String title, thumbnailUrl, genre, rating, alamat, testimoni, keterangan, year;
+		
+	public Movie() {
+	}
 
-    public Movie() {
-    }
+	public Movie(String name, String thumbnailUrl, String year, String rating,
+			String genre, String alamat, String testimoni, String keterangan) {
+		this.title = name;
+		this.thumbnailUrl = thumbnailUrl;
+		this.year = year;
+		this.rating = rating;
+		this.genre = genre;
+		this.alamat = alamat;
+		this.testimoni = testimoni;
+		this.keterangan = keterangan;
+		
+	}
+	
+	public String getThumbnailUrl() {
+		return thumbnailUrl;
+	}
 
-    public Movie(String name, String thumbnailUrl, int year, double rating,
-                 ArrayList<String> genre) {
-        this.title = name;
-        this.thumbnailUrl = thumbnailUrl;
-        this.year = year;
-        this.rating = rating;
-        this.genre = genre;
-    }
+	public void setThumbnailUrl(String thumbnailUrl) {
+		this.thumbnailUrl = thumbnailUrl;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public void setTitle(String name) {
+		this.title = name;
+	}
 
-    public void setTitle(String name) {
-        this.title = name;
-    }
+	public String getTestimoni() {
+		return testimoni;
+	}
 
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
-    }
+	public void setTestimoni(String testimoni) {
+		this.testimoni = testimoni;
+	}
+	
+	public String getAlamat() {
+		return alamat;
+	}
 
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
-    }
+	public void setAlamat(String alamat) {
+		this.alamat = alamat;
+	}
+	
+	public String getRating() {
+		return rating;
+	}
 
-    public int getYear() {
-        return year;
-    }
+	public void setRating(String rating) {
+		this.rating = rating;
+	}
 
-    public void setYear(int year) {
-        this.year = year;
-    }
+	public String getGenre() {
+		return genre;
+	}
 
-    public double getRating() {
-        return rating;
-    }
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	
+	public String getYear() {
+		return year;
+	}
 
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
+	public void setYear(String year) {
+		this.year = year;
+	}
 
-    public ArrayList<String> getGenre() {
-        return genre;
-    }
+	public String getKeterangan() {
+		return keterangan;
+	}
 
-    public void setGenre(ArrayList<String> genre) {
-        this.genre = genre;
-    }
-
+	public void setKeterangan(String keterangan) {
+		this.keterangan = keterangan;
+	}
+	
 }
